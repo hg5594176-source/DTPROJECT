@@ -1,0 +1,391 @@
+:root {
+  --red: #e22a2a;
+  --black: #0b0b0b;
+  --gray: #2e2e2e;
+  --white: #f5f5f5;
+  --web-line: rgba(255,255,255,0.15);
+  --font-main: 'Poppins', sans-serif;
+  --font-head: 'Bangers', 'Impact', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  /* ADDITION: Set default text alignment to center for the whole page */
+  text-align: center; 
+}
+
+a {
+  color: var(--red);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+}
+a:hover {
+  color: var(--white);
+  transform: scale(1.05);
+  text-shadow: 0 0 4px #ff0000;
+}
+
+
+header.hero-banner {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+
+header .banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Spider-web overlay */
+header .overlay-web {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, var(--web-line) 1px, transparent 1px),
+    radial-gradient(circle, var(--web-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+header .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+}
+
+header .hero-content h1 {
+  font-family: var(--font-head);
+  font-size: 3rem;
+  color: var(--white);
+  text-shadow: 0 0 8px var(--red), 0 0 12px var(--red), 0 0 20px #000;
+  animation: glowRed 2s infinite alternate;
+  margin-bottom: 10px;
+}
+
+header .hero-content p {
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  color: var(--white);
+  text-shadow: 1px 1px 3px #000;
+}
+
+@keyframes glowRed {
+  0% { text-shadow: 0 0 8px #ff0000, 0 0 12px #ff0000, 0 0 20px #000; }
+  50% { text-shadow: 0 0 12px #ff5555, 0 0 18px #ff5555, 0 0 25px #000; }
+  100% { text-shadow: 0 0 8px #ff0000, 0 0 12px #ff0000, 0 0 20px #000; }
+}
+
+
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 0;
+  background-color: rgba(0,0,0,0.8);
+}
+
+nav.main-nav a {
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav.main-nav a:hover {
+  background-color: var(--red);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+
+main section {
+  padding: 60px 20px;
+  position: relative;
+}
+
+main section:nth-of-type(even) {
+  background-color: var(--gray);
+}
+
+
+section h2 {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #ff0000, #ff5555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+
+section p {
+  font-family: var(--font-main); /* Corrected font variable usage */
+  font-size: 1rem;
+  color: var(--white);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  /* CORRECTION: Override body center-align for readability on long paragraphs */
+  text-align: left; 
+  letter-spacing: 0.5px;
+}
+
+
+#mywork {
+  display: flex;            
+  flex-wrap: nowrap;        
+  overflow-x: auto;        
+  gap: 20px;                
+  padding: 20px;
+  scroll-behavior: smooth;
+  /* Ensure the container itself is centered within the section */
+  margin: 0 auto; 
+}
+
+#mywork::-webkit-scrollbar {
+  height: 8px;
+}
+
+#mywork::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#mywork::-webkit-scrollbar-thumb {
+  background-color: var(--red);
+  border-radius: 4px;
+}
+
+#mywork .work-item {
+  flex: 0 0 auto;           
+  width: 320px;             
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#mywork .work-item video {
+  width: 100%;              
+  height: auto;             
+  border: 3px solid var(--web-line);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+/* ABOUT ME PAGE STYLES */
+#about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-section {
+    overflow: hidden; 
+    display: block;
+    margin-top: 30px;
+    /* Ensure the content inside the section aligns left/float correctly */
+    text-align: left; 
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px; 
+    margin-right: 25px;
+    float: left; 
+    object-fit: cover;
+    border: 3px solid var(--red);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.introduction p {
+    text-align: left; /* Keep long intro paragraphs left-aligned for readability */
+    max-width: 100%;
+}
+
+
+/* SKILLS & PROJECTS PAGE STYLES */
+.skills-container {
+    display: flex;            
+    flex-wrap: wrap;          
+    justify-content: center;  
+    gap: 30px;
+    padding: 20px 0;
+    max-width: 1000px; /* Limits the container width */
+    margin: 0 auto; /* Centers the container */
+}
+
+.skill-card {
+    flex: 0 0 calc(50% - 30px);
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid var(--web-line);
+}
+
+.skill-card h3 {
+    color: var(--red);
+    font-family: var(--font-head);
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--white);
+    text-align: center; /* Keep card text centered */
+    font-size: 0.95rem;
+    margin: 5px auto;
+}
+
+.card-html {
+    background-color: rgba(226, 42, 42, 0.1); 
+    border-left: 5px solid #E44D26; 
+}
+.card-python {
+    background-color: rgba(226, 42, 42, 0.1);
+    border-left: 5px solid #306998; 
+}
+.card-git {
+    background-color: rgba(226, 42, 42, 0.1);
+    border-left: 5px solid #F05032; 
+}
+.card-team {
+    background-color: rgba(226, 42, 42, 0.1);
+    border-left: 5px solid #4CAF50; 
+}
+
+
+/* CONTACT FORM STYLES (Already centered by margin: 0 auto; on form) */
+#contactus form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--gray);
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid var(--web-line);
+  /* CORRECTION: Inputs/labels should align left for forms */
+  text-align: left; 
+}
+
+#contactus label {
+  display: block;
+  margin-top: 15px;
+  color: var(--white);
+}
+
+#contactus input,
+#contactus textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid var(--web-line);
+  border-radius: 4px;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#contactus textarea {
+  min-height: 100px;
+}
+
+#contactus button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  background-color: var(--red);
+  color: var(--white);
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  /* CORRECTION: Display block and margin auto to center the button within the form */
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+#contactus button:hover {
+  background-color: darkred;
+  transform: scale(1.02);
+}
+
+
+footer {
+  background-color: var(--black);
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--white);
+  border-top: 1px solid var(--web-line);
+}
+
+footer h3 {
+  margin-bottom: 15px;
+}
+
+footer a {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+ @media (max-width: 768px) {
+  header .hero-content h1 {
+    font-size: 2rem;
+  }
+  /* header .yx h1 selector remains, though 'yx' is not in HTML */
+  header .yx h1 { 
+    font-size: 1.5rem;
+  }
+  main section {
+    padding: 40px 15px;
+  }
+  nav.main-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .skill-card {
+        flex: 0 0 100%; 
+        max-width: 100%;
+    }
+    .profile-image {
+        float: none;
+        margin: 0 auto 15px auto;
+        display: block;
+    }
+    .profile-section {
+        text-align: center;
+    }
+    .introduction p {
+        text-align: left; /* Keep long intro paragraphs readable */
+    }
+}
